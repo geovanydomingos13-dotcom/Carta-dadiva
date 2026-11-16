@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para Dádiva Matins ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--red:#c8102e;--rose:#f7c9d4;--soft:#fff5f7;--ink:#4a2530;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Lato',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);background:linear-gradient(160deg,#fff 0%,var(--soft) 45%,var(--rose) 100%);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+#bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.h{position:absolute;bottom:-40px;color:var(--red);opacity:0;animation:rise linear forwards}
+@keyframes rise{10%{opacity:.5}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+section{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:1;transition:opacity 1s}
+.hide{opacity:0;pointer-events:none}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,7vw,40px);line-height:1.2;color:var(--red);max-width:560px}
+.sub{font-family:var(--serif);font-style:italic;font-size:clamp(17px,4.5vw,22px);margin:14px 0 26px;max-width:480px}
+/* envelope */
+.env{position:relative;width:min(78vw,300px);height:min(52vw,200px);margin:30px 0 24px;cursor:pointer;animation:pulse 2.4s ease-in-out infinite}
+.env.open{animation:none}
+@keyframes pulse{50%{transform:scale(1.04)}}
+.env .back,.env .front,.env .flap{position:absolute;left:0;width:100%}
+.back{top:0;height:100%;background:#e8a5b4;border-radius:6px;box-shadow:0 14px 30px rgba(200,16,46,.25)}
+.letter{position:absolute;left:8%;width:84%;top:8%;height:80%;background:#fff;border-radius:4px;transition:transform 1.2s .9s ease;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.env.open .letter{transform:translateY(-70%)}
+.front{bottom:0;height:100%;z-index:3;background:linear-gradient(135deg,transparent 50%,#f4b8c6 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 50%,#f4b8c6 50%) right/50% 100% no-repeat;border-radius:6px}
+.front::after{content:"";position:absolute;left:0;right:0;bottom:0;height:55%;background:#f0aebd;clip-path:polygon(0 100%,50% 0,100% 100%);opacity:.0}
+.flap{top:0;height:55%;background:#d9879b;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s ease,z-index 0s .45s;z-index:4}
+.env.open .flap{transform:rotateX(180deg);z-index:1}
+.seal{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:34px;z-index:5;transition:opacity .4s;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+.env.open .seal{opacity:0}
+.ask{font-family:var(--serif);font-size:clamp(19px,5vw,24px);max-width:420px}
+.tap{font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.6;margin-top:14px}
+/* book */
+#book{justify-content:flex-start;padding:0}
+#page{flex:1;width:100%;max-width:620px;overflow-y:auto;padding:44px 26px 20px;display:flex;flex-direction:column;justify-content:center;text-align:left}
+#page .num{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+#page h2{font-family:var(--serif);font-size:clamp(26px,7vw,36px);color:var(--red);line-height:1.2;margin-bottom:20px}
+#page p{font-family:var(--serif);font-size:clamp(19px,5vw,22px);line-height:1.55;margin-bottom:16px;opacity:0;animation:fade 1.2s forwards}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#page.center{text-align:center}
+.big{font-family:var(--serif);font-weight:600;font-size:clamp(34px,10vw,56px);color:var(--red);letter-spacing:2px;margin:10px 0 20px;opacity:0;animation:fade 2s forwards}
+.sig{margin-top:8px}
+.nav{width:100%;max-width:620px;display:flex;align-items:center;justify-content:space-between;padding:10px 18px 18px;gap:8px}
+.nav button,.mus{font-family:var(--sans);border:1px solid var(--red);background:#fff;color:var(--red);border-radius:30px;padding:10px 18px;font-size:15px;cursor:pointer}
+.nav button:disabled{opacity:.3}
+.nav button.pri{background:var(--red);color:#fff}
+.dots{display:flex;gap:7px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--rose);cursor:pointer}
+.dots i.on{background:var(--red)}
+.mus{position:fixed;top:calc(12px + env(safe-area-inset-top));right:12px;z-index:9;padding:8px 12px;font-size:16px}
+body.moment{background:linear-gradient(160deg,#fff0f3,#f5a9bb 70%,#e27a93)}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<button class="mus" id="mus" aria-label="Música">🎵</button>
+
+<section id="intro">
+  <h1>Para Dádiva Matins, uma pessoa que se tornou especial ❤️</h1>
+  <p class="sub">Existem coisas que às vezes sentimos, mas nem sempre conseguimos expressar da melhor maneira. Hoje quero tentar.</p>
+  <div class="env" id="env"><div class="back"></div><div class="letter"></div><div class="front"></div><div class="flap"></div><div class="seal">❤️</div></div>
+  <p class="ask">Dádiva, tenho algumas coisas para te dizer. Prometes ler até ao fim?</p>
+  <p class="tap">Toca no envelope</p>
+</section>
+
+<section id="book" class="hide">
+  <div id="page"></div>
+  <div class="nav"><button id="prev">←</button><div class="dots" id="dots"></div><button id="next" class="pri">→</button></div>
+</section>
+
+<script>
+const D=[
+{n:'Abertura',t:'Dádiva, sabes o quanto és especial?',p:[
+'Existem pessoas que chegam à nossa vida e acabam por ocupar um espaço que não estava reservado para ninguém. Contigo foi assim.',
+'Sem eu perceber como, passaste a fazer parte dos meus pensamentos. Não és apenas alguém com quem gosto de conversar. És alguém que admiro, por quem tenho consideração e cuja felicidade me importa.',
+'Quero que saibas isto, Dádiva, antes de tudo o resto.']},
+{n:'Capítulo 2',t:'A mulher que vejo em ti',p:[
+'Gosto da tua beleza, do teu sorriso, e não vou fingir que não reparo neles. Mas o que mais me fica é o resto.',
+'A tua maneira de pensar, a tua inteligência, a forma como falas das coisas que importam para ti. Os pequenos detalhes que talvez nem notes, mas que fazem de ti quem és.',
+'Admiro a mulher que és, Dádiva. Pelo que transmites e pelo que despertas em mim.']},
+{n:'Capítulo 3',t:'Mesmo quando não estás por perto',p:[
+'Há dias em que estou ocupado, a correr de um lado para o outro, e mesmo assim lembro-me de ti.',
+'Dá-me vontade de saber como estás, como correu o teu dia, se está tudo bem, se já comeste, se conseguiste resolver aquilo que te preocupava.',
+'Não preciso de um motivo especial para pensar em ti. Às vezes, simplesmente acontece.']},
+{n:'Capítulo 4',t:'O que gostaria de viver contigo',p:[
+'Não estou interessado apenas nos momentos bonitos e nas conversas agradáveis. Gostaria de partilhar contigo as conquistas, as dificuldades, os planos e os sonhos.',
+'Gostaria de ser alguém que acrescenta à tua vida, que respeita o teu espaço, apoia os teus objectivos e mostra carinho através de atitudes.',
+'Confiança, respeito, lealdade, comunicação e reciprocidade. É nisto que acredito.',
+'Não prometo uma vida perfeita. Prometo vontade de construir uma relação em que os dois se sintam importantes e seguros.']},
+{n:'Capítulo 5',t:'Se a nossa história fosse um livro',p:[
+'Dádiva, às vezes penso em nós e fico a imaginar até onde a nossa história poderá chegar. Não sei quantas páginas ainda teremos pela frente, nem tudo aquilo que a vida poderá reservar para nós. Mas sei que gosto da ideia de continuar a conhecer-te, de descobrir mais sobre ti e de construir momentos que um dia possamos recordar com um sorriso.',
+'Uma história não precisa de ser perfeita para ser especial. Basta que duas pessoas se encontrem, se conheçam, criem sentimentos e decidam dar espaço uma à outra nas suas vidas.',
+'Foi isso que me fez escrever esta carta. A próxima página é a mais importante.']},
+{moment:1},
+{last:1}
+];
+const $=id=>document.getElementById(id);
+let cur=0,ac=null,master=null,musicOn=false,timer=null;
+// corações de fundo
+function heart(size,dur,x,parent,txt){const h=document.createElement('span');h.className='h';h.textContent=txt||'❤';h.style.cssText=`left:${x}%;font-size:${size}px;animation-duration:${dur}s`;(parent||$('bg')).appendChild(h);setTimeout(()=>h.remove(),dur*1000)}
+setInterval(()=>heart(10+Math.random()*22,9+Math.random()*7,Math.random()*100),1400);
+// música suave (WebAudio, sem ficheiros externos)
+const chords=[[220,261.6,329.6],[174.6,220,261.6],[261.6,329.6,392],[196,246.9,293.7]];
+function startAudio(){if(ac)return;ac=new (window.AudioContext||window.webkitAudioContext)();master=ac.createGain();master.gain.value=.05;master.connect(ac.destination);let i=0;const play=()=>{chords[i%4].forEach(f=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;o.connect(g);g.connect(master);const t=ac.currentTime;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.6,t+1.2);g.gain.linearRampToValueAtTime(0,t+4.2);o.start(t);o.stop(t+4.3)});i++};play();timer=setInterval(play,4000)}
+function setMusic(on){musicOn=on;$('mus').textContent=on?'🎵':'🔇';if(on){startAudio();ac.resume()}else if(ac)ac.suspend()}
+$('mus').onclick=()=>setMusic(!musicOn);
+// envelope
+$('env').onclick=function(){if(this.classList.contains('open'))return;this.classList.add('open');setMusic(true);
+ for(let i=0;i<16;i++)setTimeout(()=>heart(16+Math.random()*24,3+Math.random()*2,35+Math.random()*30,document.body,'❤️'),600+i*120);
+ setTimeout(()=>{$('intro').classList.add('hide');$('book').classList.remove('hide');show(0)},3200)};
+// livro
+function dots(){$('dots').innerHTML=D.map((_,i)=>`<i class="${i==cur?'on':''}" onclick="show(${i})"></i>`).join('')}
+function show(i){cur=i;const d=D[i],pg=$('page');pg.scrollTop=0;pg.className='';
+ document.body.classList.toggle('moment',!!d.moment);
+ if(master&&ac)master.gain.setTargetAtTime(d.moment?.025:.05,ac.currentTime,.8);
+ let h='',delay=0;const f=()=>`style="animation-delay:${(delay+=1.1).toFixed(1)}s"`;
+ if(d.moment){pg.className='center';
+  h=`<p ${f()}>Dádiva, se a nossa história tivesse de ficar por aqui, gostaria que fosse lembrada simplesmente assim:</p><div class="big" style="animation-delay:${(delay+=1.4)}s">GEOVANY ❤️ DÁDIVA</div><p ${f()}>Dois nomes, duas pessoas, uma história que teve o seu significado e que merece ser recordada com carinho.</p><p ${f()}>Mas, sendo sincero contigo, não é esse o final que desejo.</p><p ${f()}>Gostaria que ainda tivéssemos muitas páginas para escrever, muitos momentos para partilhar, motivos para sorrir e histórias que ainda nem imaginamos.</p><p ${f()}>Não sei exactamente como será o futuro, mas sei que gostaria de continuar a descobrir o que podemos ser juntos.</p>`;
+  for(let k=0;k<12;k++)setTimeout(()=>heart(18+Math.random()*20,6,Math.random()*90),k*700)}
+ else if(d.last){pg.className='center';
+  h=`<h2 style="margin-bottom:18px">Dádiva Matins, quero que saibas que és importante para mim.</h2><p ${f()}>Admiro a mulher que és, gosto da pessoa que estou a conhecer e tenho vontade de te ter cada vez mais presente na minha vida.</p><p ${f()}>Não quero que estas palavras sejam apenas bonitas enquanto as lês. Quero que, com o tempo, as minhas atitudes também consigam demonstrar aquilo que hoje estou a tentar explicar.</p><p ${f()}>Se existe algo que desejo, é que possamos continuar a escrever esta história com verdade, carinho, respeito e vontade de fazer dar certo.</p><p ${f()}>Obrigado por seres tu, Dádiva.</p><p class="sig" ${f()}>Com carinho,</p><div class="big" style="animation-delay:${(delay+=1.2)}s">GEOVANY ❤️ DÁDIVA</div><p style="animation-delay:${(delay+=1.5)}s"><em>“Uma história que ainda gostaria de continuar a escrever…”</em></p><p style="animation-delay:${delay+1}s"><button class="mus" style="position:static" onclick="show(0)">↺ Reler a carta</button></p>`;
+  for(let k=0;k<14;k++)setTimeout(()=>heart(18+Math.random()*22,6,Math.random()*90),k*600)}
+ else{h=`<div class="num">${d.n}</div><h2>${d.t}</h2>`+d.p.map(t=>`<p ${f()}>${t}</p>`).join('')}
+ pg.innerHTML=h;dots();$('prev').disabled=i==0;$('next').disabled=i==D.length-1}
+$('prev').onclick=()=>show(cur-1);$('next').onclick=()=>show(cur+1);
+</script>
+</body>
+</html>
